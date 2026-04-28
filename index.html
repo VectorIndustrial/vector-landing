@@ -148,7 +148,7 @@
                 }
 
                 const reader = new FileReader();
-                successMsg.innerText = "⏳ Procesando y subiendo a Google Drive...";
+                successMsg.innerText = "⏳ Alimentando el proceso...";
                 successMsg.classList.remove('hidden-element');
 
                 reader.onload = async function(e) {
@@ -157,7 +157,7 @@
                     try {
                         await fetch(SCRIPT_URL, {
                             method: 'POST',
-                            mode: 'no-cors', 
+                            headers: { "Content-Type": "application/json" }, 
                             body: JSON.stringify({
                                 base64: base64,
                                 type: file.type,
