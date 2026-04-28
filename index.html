@@ -136,30 +136,53 @@
         }
 
         async function handleFileSelection() {
-            const mainInput = document.getElementById('main-upload');
-            const successMsg = document.getElementById('success-msg');
-            
-            if (mainInput.files.length > 0) {
-                const file = mainInput.files[0];
-                const reader = new FileReader();
+    const mainInput = document.getElementById('main-upload');
+    const successMsg = document.getElementById('success-msg');
+    
+    if (mainInput.files.length > 0) {
+        const file = mainInput.files[0];
+        
+        // Validación de tamaño (10MB)
+        if (file.size > 10 * 1024 * 1024) {
+            alert("Imagen demasiado pesada. El límite es 10MB.");
+            mainInput.value = "";
+            return;
+        }
 
-                successMsg.innerText = "⏳ Procesando y subiendo a Google Drive...";
-                successMsg.classList.remove('hidden-element');
+        const reader = new FileReader();
+        successMsg.innerText = "⏳ Procesando y subiendo a Google Drive...";
+        successMsg.classList.remove('hidden-element');
 
-                reader.onload = async function(e) {
-                    const base64 = e.target.result;
+        reader.onload = async function(e) {
+            const base64 = e.target.result;
 
-                    try {
-                        // Enviamos a Google Apps Script
-                        const response = await fetch(SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors', // Importante para evitar bloqueos de CORS básicos
-                            body: JSON.stringify({
-                                base64: base64,
-                                type: file.type,
-                                filename: file.name
-                            })
-                        });
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', 
+                    body: JSON.stringify({
+                        base64: base64,
+                        type: file.type,
+                        filename: file.name
+                    })
+                });
+
+                successMsg.innerText = "✅ Imagen guardada en Drive. Iniciando modelado...";
+                mainInput.value = ""; // Limpiamos el input
+                
+                setTimeout(() => {
+                    openModal();
+                    successMsg.classList.add('hidden-element');
+                }, 2000);
+
+            } catch (error) {
+                console.error("Error:", error);
+                successMsg.innerText = "❌ Error en la conexión con Drive.";
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
                         // Como usamos no-cors, no podemos leer la respuesta JSON, 
                         // pero si la ejecución llega aquí sin fallar, asumimos éxito.
