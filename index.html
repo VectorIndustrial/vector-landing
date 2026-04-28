@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vector Industrial | AI-Driven Decarbonization</title>
+    <title>Vector Industrial | IP Architects</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
         .nav-glass { background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #30363d; }
         
-        /* Línea de Escaneo Lila Gruesa (6px) con Resplandor Neon */
+        /* Línea de Escaneo Lila Gruesa */
         @keyframes scan-line { 0% { top: -5%; } 100% { top: 105%; } }
         .scanner::after {
             content: ""; position: absolute; width: 100%; height: 6px; 
@@ -33,14 +33,29 @@
                 <img src="logo_vector.png" alt="Vector" class="h-8">
                 <span class="font-mono text-[10px] text-gray-500 uppercase hidden md:block tracking-widest">Deep Tech Decarbonization</span>
             </div>
-            <div class="flex items-center gap-6 text-xs font-bold">
-                <a href="dashboard.html" class="text-gray-400 hover:text-green-400 transition tracking-widest uppercase">Oportunidades</a>
-                <button onclick="checkAccess()" class="text-purple-400 border border-purple-900/50 px-3 py-1.5 rounded-lg hover:bg-purple-900/20 font-mono transition">🔒 ACCESO IP</button>
+            <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-widest">
+                <a href="dashboard.html" class="text-gray-400 hover:text-green-400 transition">Oportunidades</a>
+                <button onclick="showDesigner()" class="text-gray-400 hover:text-blue-400 transition">Diseñador</button>
+                <button onclick="checkAccess()" class="text-purple-400 border border-purple-900/50 px-3 py-1.5 rounded-lg hover:bg-purple-900/20 font-mono transition">🔒 Acceso IP</button>
             </div>
         </div>
     </nav>
 
-    <section id="designer" class="py-20 max-w-6xl mx-auto px-6">
+    <main id="hero-section" class="py-24 px-6 max-w-6xl mx-auto text-center">
+        <h1 class="text-6xl font-extrabold text-white tracking-tighter mb-6">Flujo de Modelado del Diseñador</h1>
+        <p class="text-xl text-gray-400 mb-12">Mapeo desde la ubicación georreferenciada hasta el modelo operativo de su planta.</p>
+        
+        <div class="bg-gray-900/50 p-10 rounded-3xl border border-gray-800 text-left max-w-4xl mx-auto">
+            <p class="text-gray-300 leading-relaxed mb-8">
+                Esta infografía muestra cómo nuestro **Designer Agent** comienza con datos de Maps y ubicación para luego modelar las energías primarias clave (Capacidad Compresores NH₃, Calderas Toneladas, Aire Compresor psi). A partir de ahí, la IA completa los cuadros de sus procesos aguas abajo y genera un modelo digital optimizado para la operación y descarbonización.
+            </p>
+            <button onclick="showDesigner()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-xl transition shadow-lg shadow-blue-900/40 uppercase text-xs tracking-widest">
+                Comenzar Diagnóstico y Diseño
+            </button>
+        </div>
+    </main>
+
+    <section id="designer-tool" class="hidden-element py-20 max-w-6xl mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-5xl font-extrabold text-white tracking-tighter uppercase mb-6 italic">Agente Diseñador IA</h2>
             <div class="flex justify-center gap-2 font-mono text-[10px] mb-8">
@@ -54,50 +69,38 @@
             <img id="img-flujo" src="designer_agent_flow.png" class="hidden-element w-full opacity-90 transition-all duration-500">
         </div>
 
-        <div class="grid md:grid-cols-2 gap-10 items-start mb-20">
+        <div class="grid md:grid-cols-2 gap-10 mb-20">
             <div class="p-8 bg-purple-900/10 rounded-3xl border border-purple-500/20">
                 <h4 class="text-purple-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 01: Ingeniería Inversa</h4>
-                <p class="text-gray-300 leading-relaxed text-sm mb-6">
-                    Nuestra IA modela sus procesos partiendo de la imagen de su producto final. **Adjunte una fotografía** para que el agente descomponga las fases y plantee los Paretos de oportunidad.
-                </p>
+                <p class="text-gray-300 leading-relaxed text-sm mb-6">Nuestra IA modela sus procesos partiendo de la imagen de su producto final. **Adjunte una fotografía** para que el agente descomponga las fases y plantee los Paretos de oportunidad.</p>
                 <input type="file" id="upload-product" class="hidden-element" onchange="handleFileUploadTrigger()">
-                <button onclick="document.getElementById('upload-product').click()" class="w-full py-4 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-500 transition shadow-lg shadow-purple-900/40 uppercase text-xs tracking-widest">
-                    📁 Adjuntar Imagen de Producto
-                </button>
-                <div id="success-msg" class="hidden-element mt-4 p-3 bg-green-500/20 border border-green-500/50 text-green-400 text-xs rounded-lg text-center animate-pulse">
-                    ✅ Imagen recibida con éxito. Analizando Paretos de oportunidad...
-                </div>
+                <button onclick="document.getElementById('upload-product').click()" class="w-full py-4 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-500 transition shadow-lg shadow-purple-900/40 uppercase text-xs tracking-widest">📁 Adjuntar Producto Final</button>
+                <div id="success-msg" class="hidden-element mt-4 p-3 bg-green-500/20 border border-green-500/50 text-green-400 text-xs rounded-lg text-center animate-pulse">✅ Imagen recibida con éxito.</div>
             </div>
-
             <div class="p-8 bg-gray-900/50 rounded-3xl border border-gray-800">
                 <h4 class="text-blue-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 02: Ingeniería de Planta</h4>
-                <p class="text-gray-300 leading-relaxed text-sm">
-                    El Diseñador integra parámetros críticos de infraestructura: **Electricidad, Gas Natural, NH₃, Vapor y Aire Comprimido**. Modelamos la eficiencia energética completa hasta el producto final.
-                </p>
+                <p class="text-gray-300 leading-relaxed text-sm">El Diseñador integra parámetros críticos: **Electricidad, Gas Natural, NH₃, Vapor y Aire Comprimido**. Modelamos la eficiencia energética completa.</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 border-t border-gray-800 bg-black/40">
+    <footer id="leadership-section" class="py-20 border-t border-gray-800 bg-black/40">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-12">
                 <p class="font-mono text-[10px] text-gray-500 tracking-[0.3em] uppercase">Development Core / IP Architects</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card-ip p-8 rounded-2xl">
-                    <p class="font-mono text-[9px] text-green-500 mb-2 tracking-widest uppercase">CEO</p>
+                <div class="card-ip p-8 rounded-2xl text-center">
+                    <p class="font-mono text-[9px] text-green-500 mb-2 tracking-widest">CEO</p>
                     <h3 class="text-xl font-bold text-white mb-1 italic">Jonathan Bosso</h3>
-                    <p class="text-xs text-gray-500 uppercase tracking-tighter">Orquestación Estratégica</p>
                 </div>
-                <div class="card-ip p-8 rounded-2xl">
-                    <p class="font-mono text-[9px] text-green-500 mb-2 tracking-widest uppercase">CSO</p>
+                <div class="card-ip p-8 rounded-2xl text-center">
+                    <p class="font-mono text-[9px] text-green-500 mb-2 tracking-widest">CSO</p>
                     <h3 class="text-xl font-bold text-white mb-1 italic">Daniel Guerreiro</h3>
-                    <p class="text-xs text-gray-500 uppercase tracking-tighter">Optimización Científica</p>
                 </div>
-                <div class="card-ip p-8 rounded-2xl border-blue-500/30">
-                    <p class="font-mono text-[9px] text-blue-500 mb-2 tracking-widest uppercase">CTO</p>
+                <div class="card-ip p-8 rounded-2xl text-center border-blue-500/30">
+                    <p class="font-mono text-[9px] text-blue-500 mb-2 tracking-widest">CTO</p>
                     <h3 class="text-xl font-bold text-white mb-1 italic">Juan José López</h3>
-                    <p class="text-xs text-gray-500 uppercase tracking-tighter">Desarrollo Core MEVA</p>
                 </div>
             </div>
             <div class="mt-16 text-center">
@@ -108,22 +111,24 @@
 
     <div id="lead-modal" class="hidden-element fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-6">
         <div class="bg-[#161b22] border border-gray-800 p-10 rounded-3xl max-w-md w-full shadow-2xl">
-            <div class="text-center mb-8">
-                <div class="bg-blue-500/10 text-blue-400 text-[10px] font-mono py-1 px-4 rounded-full inline-block mb-4 border border-blue-500/20 tracking-widest uppercase">Analysis Locked</div>
-                <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Solicitar Credenciales</h3>
-                <p class="text-gray-400 text-sm mt-3">Cargue sus datos para visualizar los **Paretos de mejora** y las especificaciones de activos detectadas por la IA.</p>
-            </div>
+            <h3 class="text-2xl font-bold text-white uppercase text-center mb-4">Solicitar Credenciales</h3>
             <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
-                <input type="text" name="company" required placeholder="Empresa / Sector Industrial" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
-                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
-                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl text-white font-bold hover:bg-blue-500 transition uppercase text-xs tracking-widest">Generar Acceso al Agente IA</button>
+                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <input type="text" name="company" required placeholder="Empresa / Sector" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl text-white font-bold hover:bg-blue-500 transition uppercase text-xs tracking-widest">Generar Acceso</button>
             </form>
-            <button onclick="document.getElementById('lead-modal').classList.add('hidden-element')" class="mt-6 text-gray-600 text-[10px] w-full hover:text-white transition uppercase tracking-widest">Cerrar</button>
+            <button onclick="document.getElementById('lead-modal').classList.add('hidden-element')" class="mt-6 text-gray-600 text-[10px] w-full uppercase">Cerrar</button>
         </div>
     </div>
 
     <script>
+        function showDesigner() {
+            document.getElementById('hero-section').classList.add('hidden-element');
+            document.getElementById('designer-tool').classList.remove('hidden-element');
+            window.scrollTo(0,0);
+        }
+
         function toggleView(mode) {
             const f = document.getElementById('img-flujo');
             const r = document.getElementById('img-reverso');
