@@ -155,15 +155,18 @@
                     const base64 = e.target.result;
 
                     try {
-                        await fetch(SCRIPT_URL, {
+                        const response = await fetch(SCRIPT_URL, {
                             method: 'POST',
-                            headers: { "Content-Type": "application/json" }, 
+                            headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
-                                base64: base64,
+                            base64: base64,
                                 type: file.type,
                                 filename: file.name
                             })
                         });
+
+                        const result = await response.json();
+                        console.log(result);
 
                         successMsg.innerText = "✅ Imagen guardada en Drive. Iniciando modelado...";
                         mainInput.value = "";
