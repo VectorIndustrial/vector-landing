@@ -3,87 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vector Industrial | AI-Driven Decarbonization</title>
+    <title>Vector Industrial | AI-Driven Optimization & Decarbonization</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; }
         .hero-gradient { background: linear-gradient(135deg, #1f6feb 0%, #238636 100%); }
         .card { border: 1px solid #30363d; background: #161b22; transition: 0.3s; }
         .card:hover { border-color: #58a6ff; }
+        .agent-purple { border: 1px solid #8957e5; background: #1c1626; }
     </style>
 </head>
 <body>
     <nav class="p-6 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-[#0d1117] z-50">
-        <div class="text-2xl font-bold text-white">Vector<span class="text-green-500">Industrial</span></div>
-        <div class="space-x-4 md:space-x-6 text-sm">
-            <a href="#solucion" class="hidden md:inline hover:text-white">Solución</a>
-            <a href="#test-info" class="hover:text-green-400">Ver Test</a>
-            <a href="#contacto" class="bg-green-600 px-4 py-2 rounded text-white font-bold">Contactar</a>
+        <div class="flex items-center gap-4">
+            <img src="logo_vector.png" alt="Vector Logo" class="h-12 w-auto"> <div class="hidden md:block">
+                <div class="text-xl font-bold text-white">Vector<span class="text-green-500">Industrial</span></div>
+                <div class="text-[10px] uppercase tracking-widest text-gray-500">AI-Driven Optimization & Decarbonization</div>
+            </div>
+        </div>
+        <div class="flex gap-4 items-center text-sm">
+            <a href="https://github.com/VectorIndustrial/vector-landing" class="text-gray-400 hover:text-white flex items-center gap-1">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                Repo
+            </a>
+            <a href="#contacto" class="bg-green-600 px-4 py-2 rounded text-white font-bold hover:bg-green-500">Contactar</a>
         </div>
     </nav>
 
-    <header class="py-24 px-6 text-center">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">Deep Tech para la Descarbonización</h1>
-        <p class="text-xl max-w-3xl mx-auto mb-10 text-gray-400">Orquestación de agentes inteligentes bajo el método MEVA para optimización energética y cumplimiento normativo en tiempo real.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#test-info" class="border border-gray-700 px-8 py-3 rounded-lg hover:bg-gray-800 transition">Diseño del TEST</a>
-            <a href="#contacto" class="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition">Empezar Ahora</a>
-        </div>
+    <header class="py-20 px-6 text-center">
+        <h1 class="text-5xl font-extrabold text-white mb-4 uppercase tracking-tighter">Optimización & Descarbonización</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">Orquestación de agentes inteligentes para la eficiencia industrial bajo metodología MEVA.</p>
+        <a href="#dashboard-cfo" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-purple-500 transition">CFO-Agents Dashboard</a>
     </header>
 
-    <section id="test-info" class="py-20 bg-gray-900/40">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="card p-8 rounded-2xl border-l-4 border-l-green-500">
-                <h2 class="text-3xl font-bold text-white mb-4">Arquitectura del Test Unitario</h2>
-                <p class="mb-6 text-gray-300">El Motor MEVA integra tres capas críticas para validar el retorno de inversión (ROI):</p>
-                <ul class="space-y-4 text-sm text-gray-400">
-                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>Capa 1:</strong> Orquestación de datos crudos (Energía, Diesel, Tarifas).</li>
-                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>Capa 2:</strong> Cálculo de huella de carbono bajo estándares ISO.</li>
-                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>Capa 3:</strong> Optimización de costos mediante desplazamiento de carga (Load Shifting).</li>
-                </ul>
-                <div class="mt-8 p-4 bg-black rounded font-mono text-xs text-green-400">
-                    > Running meva_test_v1.py... <br>
-                    > Calculating savings... <br>
-                    > Status: INTEGRATED_ANALYSIS_COMPLETE [Success]
-                </div>
+    <section class="py-16 bg-gray-900/30">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6 text-center">
+            <div class="card p-6 rounded-xl border-t-2 border-green-500">
+                <p class="text-xs text-gray-500 uppercase">CEO</p>
+                <p class="font-bold text-white">Dr. Ing. Jonathan Bosso</p>
+            </div>
+            <div class="card p-6 rounded-xl border-t-2 border-green-500">
+                <p class="text-xs text-gray-500 uppercase">CSO</p>
+                <p class="font-bold text-white">Dr. Daniel Guerreiro</p>
+            </div>
+            <div class="card p-6 rounded-xl border-t-2 border-green-500">
+                <p class="text-xs text-gray-500 uppercase">CTO</p>
+                <p class="font-bold text-white">Ing. Juan José López</p>
+            </div>
+            <div class="card agent-purple p-6 rounded-xl">
+                <p class="text-xs text-purple-400 uppercase">Strategic IA</p>
+                <p class="font-bold text-purple-200">CFO Agent</p>
             </div>
         </div>
     </section>
 
-    <section id="solucion" class="py-20">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold text-white mb-10">Liderazgo</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="p-4 border border-gray-800 rounded">
-                    <p class="font-bold text-white">Dr. Ing. Jonathan Bosso</p>
-                    <p class="text-xs text-green-500 uppercase">CEO</p>
-                </div>
-                <div class="p-4 border border-gray-800 rounded">
-                    <p class="font-bold text-white">Dr. Daniel Guerreiro</p>
-                    <p class="text-xs text-green-500 uppercase">CSO</p>
-                </div>
-                <div class="p-4 border border-gray-800 rounded">
-                    <p class="font-bold text-white">Ing. Juan José López</p>
-                    <p class="text-xs text-green-500 uppercase">CTO</p>
-                </div>
+    <section id="dashboard-cfo" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-8 border-b border-gray-800 pb-4">
+                <h2 class="text-3xl font-bold text-white">Estrategia de Agentes: OPS & EPC</h2>
+                <span class="bg-purple-900 text-purple-200 px-3 py-1 rounded text-xs font-mono">HUMAN_IN_THE_LOOP_MODE</span>
             </div>
+            <div class="rounded-2xl overflow-hidden border border-gray-700 shadow-2xl">
+                <img src="dashboard_cfo_agents.png" alt="CFO Agents Dashboard" class="w-full h-auto">
+            </div>
+            <p class="mt-6 text-center text-gray-500 text-sm italic">Análisis en tiempo real de deficiencias, industrias y oportunidades en México, Brasil y Argentina.</p>
         </div>
     </section>
 
-    <section id="contacto" class="py-24 bg-black">
-        <div class="max-w-xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Hablemos de su Planta</h2>
+    <section id="contacto" class="py-20 bg-black">
+        <div class="max-w-xl mx-auto px-6 border border-gray-800 p-10 rounded-2xl">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">Contactar al Equipo</h2>
             <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required>
-                <input type="email" name="email" placeholder="Correo Corporativo" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required>
-                <textarea name="message" rows="4" placeholder="¿En qué proceso industrial necesita optimizar?" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required></textarea>
-                <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-lg transition uppercase tracking-wider">Enviar Propuesta</button>
+                <input type="text" name="name" placeholder="Nombre" class="w-full bg-gray-900 border border-gray-800 p-3 rounded outline-none focus:border-green-500 text-white" required>
+                <input type="email" name="email" placeholder="Email" class="w-full bg-gray-900 border border-gray-800 p-3 rounded outline-none focus:border-green-500 text-white" required>
+                <textarea name="message" placeholder="Mensaje" rows="4" class="w-full bg-gray-900 border border-gray-800 p-3 rounded outline-none focus:border-green-500 text-white" required></textarea>
+                <button type="submit" class="w-full bg-green-600 py-3 rounded text-white font-bold hover:bg-green-500 transition">Enviar Consulta</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 text-xs border-t border-gray-900">
-        <p>&copy; 2026 Vector Industrial | BUE · SP · CDMX</p>
+    <footer class="py-10 text-center text-gray-700 text-xs uppercase tracking-widest">
+        &copy; 2026 Vector Industrial | San Luis, Argentina
     </footer>
 </body>
 </html>
