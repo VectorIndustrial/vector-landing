@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vector Industrial | AI-Driven Plant Design & Decarbonization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    },
+                },
+            },
+        }
+    </script>
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; }
         .card { border: 1px solid #30363d; background: #161b22; transition: 0.3s; }
         .card:hover { border-color: #58a6ff; }
         .agent-designer-card { border: 2px solid #1f6feb; background: #102030; }
-        @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(400%); } }
+        @keyframes scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(350%); } }
         .animate-scan { animation: scan 4s linear infinite; }
     </style>
 </head>
@@ -23,33 +35,31 @@
                 <div class="text-[10px] text-gray-500 tracking-wider uppercase">Deep Tech Plant Design & Decarbonization</div>
             </div>
         </div>
-        <div class="flex items-center gap-4 text-sm">
-            <a href="dashboard.html" class="hidden md:inline text-gray-400 hover:text-green-400">Oportunidades</a>
-            <a href="#designer" class="hidden md:inline text-gray-400 hover:text-blue-400">Diseñador</a>
-            
-            <a href="https://github.com/VectorIndustrial/vector-landing" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-1 border border-gray-700 px-3 py-1 rounded-md">
+        <div class="flex items-center gap-4 text-sm font-medium">
+            <a href="dashboard.html" class="hidden md:inline text-gray-400 hover:text-green-400 transition">Oportunidades</a>
+            <a href="#designer" class="hidden md:inline text-gray-400 hover:text-blue-400 transition">Diseñador</a>
+            <a href="https://github.com/VectorIndustrial/vector-landing" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-1.5 border border-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-800 transition">
                 <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
                 Repo
             </a>
-
-            <button onclick="checkAccess()" class="bg-gray-800 px-3 py-2 rounded text-xs text-gray-400 hover:text-white border border-gray-700">🔒 Acceso IP</button>
-            <a href="#contacto" class="bg-green-600 px-4 py-2 rounded text-white font-bold hover:bg-green-500">Contactar</a>
+            <button onclick="checkAccess()" class="bg-gray-800 px-3.5 py-2 rounded-lg text-xs font-mono text-purple-300 hover:text-white border border-gray-700 hover:border-purple-600 transition">🔒 ACCESO IP</button>
+            <a href="#contacto" class="bg-green-600 px-5 py-2.5 rounded-xl text-white font-bold hover:bg-green-500 transition">Contactar</a>
         </div>
     </nav>
 
     <header class="py-24 px-6 text-center">
         <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tighter">Mapeo y Modelado Industrial</h1>
-        <p class="text-xl max-w-3xl mx-auto mb-10 text-gray-400">Desde la ubicación georreferenciada hasta el diseño termodinámico, nuestra IA modela su planta para eficiencia radical.</p>
+        <p class="text-lg max-w-3xl mx-auto mb-10 text-gray-400 font-normal">Desde la ubicación georreferenciada hasta el diseño termodinámico, nuestra IA modela su planta para eficiencia radical.</p>
         <div class="flex flex-wrap justify-center gap-4">
             <a href="#designer" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-500 transition">Iniciar Diseñador</a>
-            <a href="#liderazgo" class="border border-gray-700 px-8 py-3 rounded-lg hover:bg-gray-800 transition">Ver Equipo IP</a>
+            <a href="#liderazgo" class="border border-gray-700 px-8 py-3 rounded-lg hover:bg-gray-800 text-gray-300 transition">Ver Equipo IP</a>
         </div>
     </header>
 
     <section id="liderazgo" class="py-20 bg-gray-900/40 border-y border-gray-800">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-white mb-12 text-center uppercase tracking-widest">Liderazgo & IP Architecture</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-medium">
                 <div class="card p-6 rounded-xl border-t-2 border-green-500 text-center">
                     <h3 class="text-lg font-bold text-white">Dr. Ing. Jonathan Bosso</h3>
                     <p class="text-xs text-green-500 uppercase tracking-widest mb-1">CEO & IP Architect</p>
@@ -73,38 +83,63 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between mb-10 border-b border-gray-800 pb-6">
                 <div>
-                    <h2 class="text-4xl font-extrabold text-white">Flujo de Modelado del Diseñador</h2>
-                    <p class="text-gray-400 mt-2">Diagnóstico geográfico y termodinámico (NH₃, Vapor, Aire).</p>
+                    <h2 class="text-4xl font-extrabold text-white tracking-tight">Flujo de Modelado del Diseñador</h2>
+                    <p class="text-gray-400 mt-2 font-normal">Diagnóstico geográfico y termodinámico modular.</p>
                 </div>
-                <div class="hidden md:block bg-blue-900/30 text-blue-400 px-4 py-1 rounded-full border border-blue-500/30 font-mono text-xs">
-                    AGENT_STATUS: ACTIVE
+                <div class="hidden md:flex gap-2.5 font-mono text-xs">
+                    <button onclick="showDesigner Tab('flujo')" id="btn-flujo" class="bg-blue-600 text-white px-4 py-1.5 rounded-lg border border-blue-500 transition">Vista Flujo Ingeniería</button>
+                    <button onclick="showDesigner Tab('reverso')" id="btn-reverso" class="bg-gray-800 text-gray-400 px-4 py-1.5 rounded-lg border border-gray-700 hover:text-white transition">Vista Ingeniería Inversa</button>
                 </div>
             </div>
             
-            <div class="relative group overflow-hidden rounded-2xl border border-blue-500/30 bg-black">
-                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent h-20 w-full animate-scan z-10"></div>
-                <img src="designer_agent_flow.png" alt="Flujo de Ingeniería" class="w-full h-auto opacity-90 group-hover:opacity-100 transition duration-700">
+            <div id="designer-container" class="relative group overflow-hidden rounded-3xl border border-blue-500/30 bg-black shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent h-24 w-full animate-scan z-10"></div>
+                
+                <img id="img-flujo" src="designer_agent_flow.png" alt="Flujo de Ingeniería Industrial" class="w-full h-auto opacity-95 group-hover:opacity-100 transition duration-700">
+                
+                <img id="img-reverso" src="reverse_engineering_scan.png" alt="Ingeniería Inversa Vector" class="hidden w-full h-auto opacity-95 group-hover:opacity-100 transition duration-700">
             </div>
             
-            <p class="mt-8 text-center text-gray-400 text-sm max-w-3xl mx-auto">
-                El **Designer Agent** integra parámetros críticos: capacidad de compresores NH₃, toneladas de calderas y psi de aire comprimido para generar el gemelo digital de su industria.
+            <p id="designer-desc" class="mt-12 text-center text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto font-normal">
+                El **Designer Agent** integra parámetros críticos: capacidad de compresores NH₃, toneladas de calderas y psi de aire comprimido. **Además, puede modelar sus procesos estándar de forma automatizada a partir de una captura de imagen de su producto final**, generando el gemelo digital optimizado de su industria.
             </p>
         </div>
     </section>
 
-    <section id="contacto" class="py-24 bg-black">
-        <div class="max-w-xl mx-auto px-6 border border-gray-800 p-10 rounded-2xl">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Consultoría de Diseño</h2>
-            <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" placeholder="Nombre" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white outline-none focus:border-green-500">
-                <input type="email" name="email" placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white outline-none focus:border-green-500">
-                <textarea name="message" rows="4" placeholder="Describa su proceso industrial..." class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white outline-none focus:border-green-500"></textarea>
-                <button type="submit" class="w-full bg-green-600 py-4 rounded-lg text-white font-bold hover:bg-green-500 transition uppercase">Enviar Diagnóstico</button>
+    <script>
+        function showDesigner Tab(tab) {
+            const imgFlujo = document.getElementById('img-flujo');
+            const imgReverso = document.getElementById('img-reverso');
+            const btnFlujo = document.getElementById('btn-flujo');
+            const btnReverso = document.getElementById('btn-reverso');
+
+            if (tab === 'flujo') {
+                imgFlujo.classList.remove('hidden');
+                imgReverso.classList.add('hidden');
+                btnFlujo.className = 'bg-blue-600 text-white px-4 py-1.5 rounded-lg border border-blue-500 transition';
+                btnReverso.className = 'bg-gray-800 text-gray-400 px-4 py-1.5 rounded-lg border border-gray-700 hover:text-white transition';
+            } else {
+                imgFlujo.classList.add('hidden');
+                imgReverso.classList.remove('hidden');
+                btnFlujo.className = 'bg-gray-800 text-gray-400 px-4 py-1.5 rounded-lg border border-gray-700 hover:text-white transition';
+                btnReverso.className = 'bg-blue-600 text-white px-4 py-1.5 rounded-lg border border-blue-500 transition';
+            }
+        }
+    </script>
+
+    <section id="contacto" class="py-24 bg-black border-t border-gray-900">
+        <div class="max-w-xl mx-auto px-6 border border-gray-800 p-12 rounded-3xl bg-gray-900/20">
+            <h2 class="text-3xl font-extrabold text-white mb-8 text-center uppercase tracking-tight">Hablemos de su Planta</h2>
+            <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-5 font-normal">
+                <input type="text" name="name" placeholder="Nombre completo" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-4 text-white outline-none focus:border-green-500 transition">
+                <input type="email" name="email" placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 rounded-xl p-4 text-white outline-none focus:border-green-500 transition">
+                <textarea name="message" rows="4" placeholder="Describa sus procesos críticos o suba imagen de producto..." class="w-full bg-gray-900 border border-gray-800 rounded-xl p-4 text-white outline-none focus:border-green-500 transition"></textarea>
+                <button type="submit" class="w-full bg-green-600 py-4.5 rounded-xl text-white font-bold hover:bg-green-500 transition uppercase tracking-wider text-sm">Enviar Solicitud de Diagnóstico</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 text-[10px] tracking-widest uppercase">
+    <footer class="py-12 text-center text-gray-700 text-xs tracking-widest uppercase font-medium">
         &copy; 2026 Vector Industrial | Propiedad de los IP Architects | San Luis, Argentina
     </footer>
 
