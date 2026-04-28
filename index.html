@@ -1,15 +1,89 @@
-<form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-    <div>
-        <label class="block text-sm mb-2 text-gray-400">Nombre</label>
-        <input type="text" name="name" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-white outline-none focus:border-green-500" required>
-    </div>
-    <div>
-        <label class="block text-sm mb-2 text-gray-400">Email</label>
-        <input type="email" name="_replyto" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-white outline-none focus:border-green-500" required>
-    </div>
-    <div>
-        <label class="block text-sm mb-2 text-gray-400">Mensaje</label>
-        <textarea name="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-white outline-none focus:border-green-500" required></textarea>
-    </div>
-    <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 rounded-lg transition">Enviar Mensaje</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Industrial | AI-Driven Decarbonization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; }
+        .hero-gradient { background: linear-gradient(135deg, #1f6feb 0%, #238636 100%); }
+        .card { border: 1px solid #30363d; background: #161b22; transition: 0.3s; }
+        .card:hover { border-color: #58a6ff; }
+    </style>
+</head>
+<body>
+    <nav class="p-6 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-[#0d1117] z-50">
+        <div class="text-2xl font-bold text-white">Vector<span class="text-green-500">Industrial</span></div>
+        <div class="space-x-4 md:space-x-6 text-sm">
+            <a href="#solucion" class="hidden md:inline hover:text-white">Solución</a>
+            <a href="#test-info" class="hover:text-green-400">Ver Test</a>
+            <a href="#contacto" class="bg-green-600 px-4 py-2 rounded text-white font-bold">Contactar</a>
+        </div>
+    </nav>
+
+    <header class="py-24 px-6 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6">Deep Tech para la Descarbonización</h1>
+        <p class="text-xl max-w-3xl mx-auto mb-10 text-gray-400">Orquestación de agentes inteligentes bajo el método MEVA para optimización energética y cumplimiento normativo en tiempo real.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#test-info" class="border border-gray-700 px-8 py-3 rounded-lg hover:bg-gray-800 transition">Diseño del TEST</a>
+            <a href="#contacto" class="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-200 transition">Empezar Ahora</a>
+        </div>
+    </header>
+
+    <section id="test-info" class="py-20 bg-gray-900/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="card p-8 rounded-2xl border-l-4 border-l-green-500">
+                <h2 class="text-3xl font-bold text-white mb-4">Arquitectura del Test Unitario</h2>
+                <p class="mb-6 text-gray-300">El Motor MEVA integra tres capas críticas para validar el retorno de inversión (ROI):</p>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>Capa 1:</strong> Orquestación de datos crudos (Energía, Diesel, Tarifas).</li>
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>Capa 2:</strong> Cálculo de huella de carbono bajo estándares ISO.</li>
+                    <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> <strong>Capa 3:</strong> Optimización de costos mediante desplazamiento de carga (Load Shifting).</li>
+                </ul>
+                <div class="mt-8 p-4 bg-black rounded font-mono text-xs text-green-400">
+                    > Running meva_test_v1.py... <br>
+                    > Calculating savings... <br>
+                    > Status: INTEGRATED_ANALYSIS_COMPLETE [Success]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucion" class="py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-2xl font-bold text-white mb-10">Liderazgo</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-4 border border-gray-800 rounded">
+                    <p class="font-bold text-white">Dr. Ing. Jonathan Bosso</p>
+                    <p class="text-xs text-green-500 uppercase">CEO</p>
+                </div>
+                <div class="p-4 border border-gray-800 rounded">
+                    <p class="font-bold text-white">Dr. Daniel Guerreiro</p>
+                    <p class="text-xs text-green-500 uppercase">CSO</p>
+                </div>
+                <div class="p-4 border border-gray-800 rounded">
+                    <p class="font-bold text-white">Ing. Juan José López</p>
+                    <p class="text-xs text-green-500 uppercase">CTO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-24 bg-black">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Hablemos de su Planta</h2>
+            <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required>
+                <input type="email" name="email" placeholder="Correo Corporativo" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required>
+                <textarea name="message" rows="4" placeholder="¿En qué proceso industrial necesita optimizar?" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required></textarea>
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-lg transition uppercase tracking-wider">Enviar Propuesta</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-600 text-xs border-t border-gray-900">
+        <p>&copy; 2026 Vector Industrial | BUE · SP · CDMX</p>
+    </footer>
+</body>
+</html>
