@@ -6,157 +6,122 @@
     <title>Vector Industrial | IP Architects</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
-        .nav-glass { background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #30363d; }
-        
-        /* Línea de Escaneo Lila Gruesa */
-        @keyframes scan-line { 0% { top: -5%; } 100% { top: 105%; } }
-        .scanner::after {
-            content: ""; position: absolute; width: 100%; height: 6px; 
-            background: #a855f7; 
-            box-shadow: 0 0 30px 10px rgba(168, 85, 247, 0.7);
-            animation: scan-line 3s linear infinite;
-            z-index: 20;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
         }
-        
-        .hidden-element { display: none !important; }
+    </script>
+    <style>
+        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; }
+        .nav-glass { background: rgba(13, 17, 23, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid #30363d; }
+        .hero-title { font-weight: 800; letter-spacing: -0.05em; line-height: 0.9; }
         .card-ip { background: #161b22; border: 1px solid #30363d; transition: all 0.3s ease; }
         .card-ip:hover { border-color: #58a6ff; transform: translateY(-2px); }
+        @keyframes scan-line { 0% { top: -10%; } 100% { top: 110%; } }
+        .scanner::after {
+            content: ""; position: absolute; width: 100%; height: 2px;
+            background: rgba(59, 130, 246, 0.5); box-shadow: 0 0 15px #3b82f6;
+            animation: scan-line 4s linear infinite;
+        }
     </style>
 </head>
-<body>
+<body class="font-sans">
 
     <nav class="p-4 nav-glass sticky top-0 z-50">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-4">
                 <img src="logo_vector.png" alt="Vector" class="h-8">
-                <span class="font-mono text-[10px] text-gray-500 uppercase hidden md:block tracking-widest">Deep Tech Decarbonization</span>
+                <span class="font-mono text-xs tracking-tighter text-gray-500 uppercase hidden md:block">Deep Tech / San Luis, AR</span>
             </div>
-            <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-widest">
-                <a href="dashboard.html" class="text-gray-400 hover:text-green-400 transition">Oportunidades</a>
-                <button onclick="showDesigner()" class="text-gray-400 hover:text-blue-400 transition">Diseñador</button>
-                <button onclick="checkAccess()" class="text-purple-400 border border-purple-900/50 px-3 py-1.5 rounded-lg hover:bg-purple-900/20 font-mono transition">🔒 Acceso IP</button>
+            <div class="flex items-center gap-6 text-sm font-semibold">
+                <a href="dashboard.html" class="text-gray-400 hover:text-green-400 transition">OPORTUNIDADES</a>
+                <button onclick="checkAccess()" class="text-purple-400 border border-purple-900/50 px-3 py-1 rounded-md hover:bg-purple-900/20 transition font-mono">🔒 ACCESO IP</button>
+                <a href="#contacto" class="bg-white text-black px-4 py-2 rounded-full hover:bg-green-500 hover:text-white transition">CONTACTAR</a>
             </div>
         </div>
     </nav>
 
-    <main id="hero-section" class="py-24 px-6 max-w-6xl mx-auto text-center">
-        <h1 class="text-6xl font-extrabold text-white tracking-tighter mb-6">Flujo de Modelado del Diseñador Ingeniero</h1>
-        <p class="text-xl text-gray-400 mb-12">Mapeo desde la ubicación georreferenciada hasta el modelo operativo de su planta.</p>
-        
-        <div class="bg-gray-900/50 p-10 rounded-3xl border border-gray-800 text-left max-w-4xl mx-auto">
-            <p class="text-gray-300 leading-relaxed mb-8">
-                Esta infografía muestra cómo nuestro **Designer Agent** comienza con datos de Maps y ubicación para luego modelar las energías primarias clave (Capacidad Compresores NH₃, Calderas Toneladas, Aire Compresor psi). A partir de ahí, la IA completa los cuadros de sus procesos aguas abajo y genera un modelo digital optimizado para la operación y descarbonización.
+    <header class="py-32 px-6 text-center max-w-5xl mx-auto">
+        <h1 class="hero-title text-6xl md:text-8xl text-white mb-8 uppercase">Diseño de Plantas <br><span class="text-green-500 italic">AI-Driven</span></h1>
+        <p class="text-xl text-gray-400 mb-12 font-light tracking-tight">Modelado energético y termodinámico para descarbonización industrial mediante agentes de ingeniería inversa.</p>
+        <div class="flex justify-center gap-4">
+            <a href="#designer" class="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/20">ABRIR DISEÑADOR</a>
+        </div>
+    </header>
+
+    <section id="designer" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+                <h2 class="text-4xl font-bold text-white tracking-tighter uppercase mb-2">Agente Diseñador</h2>
+                <p class="text-gray-400">Seleccione el modo de visualización técnica:</p>
+            </div>
+            <div class="flex bg-gray-900 p-1 rounded-xl border border-gray-800 font-mono text-[10px]">
+                <button onclick="toggleView('flujo')" id="btn-flujo" class="px-6 py-2 rounded-lg bg-blue-600 text-white transition-all">FLUJO INGENIERÍA</button>
+                <button onclick="toggleView('reverso')" id="btn-reverso" class="px-6 py-2 rounded-lg text-gray-500 hover:text-white transition-all uppercase">Ingeniería Inversa</button>
+            </div>
+        </div>
+
+        <div class="relative scanner overflow-hidden rounded-3xl border border-gray-800 bg-black shadow-2xl">
+            <img id="img-flujo" src="designer_agent_flow.png" class="w-full opacity-90">
+            <img id="img-reverso" src="reverse_engineering_scan.png.png" class="hidden w-full opacity-90">
+        </div>
+
+        <div class="mt-12 p-10 border border-blue-900/20 bg-blue-900/5 rounded-3xl">
+            <p class="text-center text-gray-300 text-lg font-light leading-relaxed">
+                Nuestra IA integra parámetros críticos: <span class="text-blue-400 font-semibold">NH₃, Vapor y Aire Comprimido</span>. 
+                A través de la <span class="text-white border-b border-green-500">Ingeniería Inversa</span>, modelamos procesos estándar partiendo de la imagen de su producto final.
             </p>
-            <button onclick="showDesigner()" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-xl transition shadow-lg shadow-blue-900/40 uppercase text-xs tracking-widest">
-                Comenzar Diagnóstico y Diseño
-            </button>
         </div>
-    </main>
+    </section>
 
-    <section id="designer-tool" class="hidden-element py-20 max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
-            <h2 class="text-5xl font-extrabold text-white tracking-tighter uppercase mb-6 italic">Agente IA Diseñador </h2>
-            <div class="flex justify-center gap-2 font-mono text-[10px] mb-8">
-                <button onclick="toggleView('reverso')" id="btn-reverso" class="px-6 py-2.5 rounded-l-xl bg-blue-600 text-white border border-blue-500 uppercase">Ingeniería Inversa</button>
-                <button onclick="toggleView('flujo')" id="btn-flujo" class="px-6 py-2.5 rounded-r-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase">Ingeniería de Planta</button>
+        <section class="py-20 border-y border-gray-800 bg-gray-900/20">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="card-ip p-8 rounded-2xl">
+                <p class="font-mono text-[10px] text-green-500 mb-2 tracking-widest uppercase">CEO / IP ARCHITECT</p>
+                <h3 class="text-xl font-bold text-white mb-1">Jonathan Bosso</h3>
+                <p class="text-sm text-gray-500">Orquestación Estratégica</p>
             </div>
-        </div>
-
-        <div class="relative scanner overflow-hidden rounded-3xl border border-gray-800 bg-black shadow-2xl mb-12">
-            <img id="img-reverso" src="reverse_engineering_scan.png.png" class="w-full opacity-90 transition-all duration-500">
-            <img id="img-flujo" src="designer_agent_flow.png" class="hidden-element w-full opacity-90 transition-all duration-500">
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-10 mb-20">
-            <div class="p-8 bg-purple-900/10 rounded-3xl border border-purple-500/20">
-                <h4 class="text-purple-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 01: Ingeniería Inversa</h4>
-                <p class="text-gray-300 leading-relaxed text-sm mb-6">Nuestra IA modela sus procesos partiendo de la imagen de su producto final. **Adjunte una fotografía** para que el agente descomponga las fases y plantee los Paretos de oportunidad.</p>
-                <input type="file" id="upload-product" class="hidden-element" onchange="handleFileUploadTrigger()">
-                <button onclick="document.getElementById('upload-product').click()" class="w-full py-4 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-500 transition shadow-lg shadow-purple-900/40 uppercase text-xs tracking-widest">📁 Adjuntar Producto Final</button>
-                <div id="success-msg" class="hidden-element mt-4 p-3 bg-green-500/20 border border-green-500/50 text-green-400 text-xs rounded-lg text-center animate-pulse">✅ Imagen recibida con éxito.</div>
+            <div class="card-ip p-8 rounded-2xl">
+                <p class="font-mono text-[10px] text-green-500 mb-2 tracking-widest uppercase">CSO / IP ARCHITECT</p>
+                <h3 class="text-xl font-bold text-white mb-1">Daniel Guerreiro</h3>
+                <p class="text-sm text-gray-500">Optimización Científica</p>
             </div>
-            <div class="p-8 bg-gray-900/50 rounded-3xl border border-gray-800">
-                <h4 class="text-blue-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 02: Ingeniería de Planta</h4>
-                <p class="text-gray-300 leading-relaxed text-sm">El Diseñador integra parámetros críticos: **Electricidad, Gas Natural, NH₃, Vapor y Aire Comprimido**. Modelamos la eficiencia energética completa.</p>
+            <div class="card-ip p-8 rounded-2xl border-blue-500/30">
+                <p class="font-mono text-[10px] text-blue-500 mb-2 tracking-widest uppercase">CTO / IP ARCHITECT</p>
+                <h3 class="text-xl font-bold text-white mb-1">Juan José López</h3>
+                <p class="text-sm text-gray-500">Desarrollo Core MEVA</p>
             </div>
         </div>
     </section>
 
-    <footer id="leadership-section" class="py-20 border-t border-gray-800 bg-black/40">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <p class="font-mono text-[10px] text-gray-500 tracking-[0.3em] uppercase">Development Core / IP Architects</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="card-ip p-8 rounded-2xl text-center">
-                    <p class="font-mono text-[9px] text-green-500 mb-2 tracking-widest">CEO</p>
-                    <h3 class="text-xl font-bold text-white mb-1 italic">Jonathan Bosso</h3>
-                </div>
-                <div class="card-ip p-8 rounded-2xl text-center">
-                    <p class="font-mono text-[9px] text-green-500 mb-2 tracking-widest">CSO</p>
-                    <h3 class="text-xl font-bold text-white mb-1 italic">Daniel Guerreiro</h3>
-                </div>
-                <div class="card-ip p-8 rounded-2xl text-center border-blue-500/30">
-                    <p class="font-mono text-[9px] text-blue-500 mb-2 tracking-widest">CTO</p>
-                    <h3 class="text-xl font-bold text-white mb-1 italic">Juan José López</h3>
-                </div>
-            </div>
-            <div class="mt-16 text-center">
-                <p class="text-[10px] font-mono text-gray-700 tracking-widest uppercase">Vector Industrial © 2026 - San Luis, Argentina</p>
-            </div>
-        </div>
-    </footer>
-
-    <div id="lead-modal" class="hidden-element fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-6">
-        <div class="bg-[#161b22] border border-gray-800 p-10 rounded-3xl max-w-md w-full shadow-2xl">
-            <h3 class="text-2xl font-bold text-white uppercase text-center mb-4">Solicitar Credenciales</h3>
-            <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
-                <input type="text" name="company" required placeholder="Empresa / Sector" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
-                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
-                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl text-white font-bold hover:bg-blue-500 transition uppercase text-xs tracking-widest">Generar Acceso</button>
-            </form>
-            <button onclick="document.getElementById('lead-modal').classList.add('hidden-element')" class="mt-6 text-gray-600 text-[10px] w-full uppercase">Cerrar</button>
-        </div>
-    </div>
 
     <script>
-        function showDesigner() {
-            document.getElementById('hero-section').classList.add('hidden-element');
-            document.getElementById('designer-tool').classList.remove('hidden-element');
-            window.scrollTo(0,0);
-        }
-
         function toggleView(mode) {
             const f = document.getElementById('img-flujo');
             const r = document.getElementById('img-reverso');
             const bf = document.getElementById('btn-flujo');
             const br = document.getElementById('btn-reverso');
-            if(mode === 'reverso') {
-                r.classList.remove('hidden-element'); f.classList.add('hidden-element');
-                br.className = 'px-6 py-2.5 rounded-l-xl bg-blue-600 text-white border border-blue-500 uppercase';
-                bf.className = 'px-6 py-2.5 rounded-r-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase';
-            } else {
-                r.classList.add('hidden-element'); f.classList.remove('hidden-element');
-                br.className = 'px-6 py-2.5 rounded-l-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase';
-                bf.className = 'px-6 py-2.5 rounded-r-xl bg-blue-600 text-white border border-blue-500 uppercase';
-            }
-        }
 
-        function handleFileUploadTrigger() {
-            const fileInput = document.getElementById('upload-product');
-            if (fileInput.files.length > 0) {
-                document.getElementById('success-msg').classList.remove('hidden-element');
-                setTimeout(() => {
-                    document.getElementById('lead-modal').classList.remove('hidden-element');
-                }, 1500);
+            if(mode === 'flujo') {
+                f.classList.remove('hidden'); r.classList.add('hidden');
+                bf.className = 'px-6 py-2 rounded-lg bg-blue-600 text-white transition-all';
+                br.className = 'px-6 py-2 rounded-lg text-gray-500 hover:text-white transition-all uppercase';
+            } else {
+                f.classList.add('hidden'); r.classList.remove('hidden');
+                bf.className = 'px-6 py-2 rounded-lg text-gray-500 hover:text-white transition-all uppercase';
+                br.className = 'px-6 py-2 rounded-lg bg-blue-600 text-white transition-all';
             }
         }
 
         function checkAccess() {
-            const p = prompt("ACCESO RESTRINGIDO - SOCIOS IP ARCHITECT:");
+            const p = prompt("PASSWORD REQUERIDO:");
             if(p === "vector2026") window.location.href = "restricted.html";
         }
     </script>
