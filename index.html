@@ -3,87 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vector Industrial | AI-Driven Optimization & Decarbonization</title>
+    <title>Vector Industrial | AI-Driven Plant Design, Optimization & Decarbonization</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; }
-        .hero-gradient { background: linear-gradient(135deg, #1f6feb 0%, #238636 100%); }
+        body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
         .card { border: 1px solid #30363d; background: #161b22; transition: 0.3s; }
         .card:hover { border-color: #58a6ff; }
-        .agent-purple { border: 1px solid #8957e5; background: #1c1626; }
+        .agent-cfo-card { border: 2px solid #8957e5; background: #1c1626; }
+        .agent-designer-card { border: 2px solid #1f6feb; background: #102030; } /* Color azul para ingeniería */
     </style>
 </head>
 <body>
     <nav class="p-6 border-b border-gray-800 flex justify-between items-center sticky top-0 bg-[#0d1117] z-50">
-        <div class="flex items-center gap-4">
-            <img src="logo_vector.png" alt="Vector Logo" class="h-12 w-auto"> <div class="hidden md:block">
-                <div class="text-xl font-bold text-white">Vector<span class="text-green-500">Industrial</span></div>
-                <div class="text-[10px] uppercase tracking-widest text-gray-500">AI-Driven Optimization & Decarbonization</div>
+        <div class="flex items-center gap-3">
+            <img src="logo_vector.png" alt="Vector Industrial Logo" class="h-10 w-auto">
+            <div class="flex flex-col">
+                <div class="text-2xl font-bold text-white leading-none">Vector<span class="text-green-500">Industrial</span></div>
+                <div class="text-[10px] text-gray-500 tracking-wider uppercase">Deep Tech Plant Design, Optimization & Decarbonization</div>
             </div>
         </div>
-        <div class="flex gap-4 items-center text-sm">
-            <a href="https://github.com/VectorIndustrial/vector-landing" class="text-gray-400 hover:text-white flex items-center gap-1">
-                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
-                Repo
-            </a>
+        <div class="flex items-center gap-3 text-sm">
+            <a href="dashboard.html" class="hidden md:inline text-gray-400 hover:text-green-400">Oportunidades</a>
+            <a href="#designer" class="hidden md:inline text-gray-400 hover:text-blue-400">Diseñador</a>
+            <button onclick="checkAccess()" class="bg-gray-800 px-3 py-2 rounded text-xs text-gray-400 hover:text-white border border-gray-700">🔒 Acceso IP</button>
             <a href="#contacto" class="bg-green-600 px-4 py-2 rounded text-white font-bold hover:bg-green-500">Contactar</a>
         </div>
     </nav>
 
-    <header class="py-20 px-6 text-center">
-        <h1 class="text-5xl font-extrabold text-white mb-4 uppercase tracking-tighter">Optimización & Descarbonización</h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">Orquestación de agentes inteligentes para la eficiencia industrial bajo metodología MEVA.</p>
-        <a href="#dashboard-cfo" class="bg-purple-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-purple-500 transition">CFO-Agents Dashboard</a>
+    <script>
+    function checkAccess() {
+        const psw = prompt("Ingrese la clave de acceso para ver la Propiedad Intelectual:");
+        if (psw === "vector2026") { 
+            window.location.href = "restricted.html";
+        } else {
+            alert("Acceso denegado. Contacte al CTO para obtener credenciales.");
+        }
+    }
+    </script>
+
+    <header class="py-24 px-6 text-center">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-6 uppercase tracking-tighter">Mapeo y Modelado Industrial</h1>
+        <p class="text-xl max-w-3xl mx-auto mb-10 text-gray-400">Desde la ubicación georreferenciada hasta el diseño termodinámico, nuestra IA modela su planta para eficiencia radical.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#designer" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-500 transition flex items-center gap-2">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.447V3.553a2 2 0 012.553-1.894L12 4l7.447-1.447A2 2 0 0122 4.447v11.894a2 2 0 01-1.106 1.789L15 20l-6-4z"/></svg>
+                Iniciar Diseñador
+            </a>
+            <a href="#liderazgo" class="border border-gray-700 px-8 py-3 rounded-lg hover:bg-gray-800 transition">Ver Equipo</a>
+        </div>
     </header>
 
-    <section class="py-16 bg-gray-900/30">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6 text-center">
-            <div class="card p-6 rounded-xl border-t-2 border-green-500">
-                <p class="text-xs text-gray-500 uppercase">CEO</p>
-                <p class="font-bold text-white">Dr. Ing. Jonathan Bosso</p>
-            </div>
-            <div class="card p-6 rounded-xl border-t-2 border-green-500">
-                <p class="text-xs text-gray-500 uppercase">CSO</p>
-                <p class="font-bold text-white">Dr. Daniel Guerreiro</p>
-            </div>
-            <div class="card p-6 rounded-xl border-t-2 border-green-500">
-                <p class="text-xs text-gray-500 uppercase">CTO</p>
-                <p class="font-bold text-white">Ing. Juan José López</p>
-            </div>
-            <div class="card agent-purple p-6 rounded-xl">
-                <p class="text-xs text-purple-400 uppercase">Strategic IA</p>
-                <p class="font-bold text-purple-200">CFO Agent</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="dashboard-cfo" class="py-20">
+    <section id="liderazgo" class="py-20 bg-gray-900/40 border-y border-gray-800">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between mb-8 border-b border-gray-800 pb-4">
-                <h2 class="text-3xl font-bold text-white">Estrategia de Agentes: OPS & EPC</h2>
-                <span class="bg-purple-900 text-purple-200 px-3 py-1 rounded text-xs font-mono">HUMAN_IN_THE_LOOP_MODE</span>
+            <h2 class="text-3xl font-bold text-white mb-12 text-center">Liderazgo Estratégico y Tecnológico</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card p-6 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Dr. Ing. Jonathan Bosso</h3>
+                        <p class="text-xs text-green-500 uppercase mb-3">CEO</p>
+                    </div>
+                    <a href="mailto:jnthnbss@gmail.com" class="text-xs text-gray-500">Contactar</a>
+                </div>
+                <div class="card p-6 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Dr. Daniel Guerreiro</h3>
+                        <p class="text-xs text-green-500 uppercase mb-3">CSO</p>
+                    </div>
+                    <a href="mailto:danielguerreiro100@gmail.com" class="text-xs text-gray-500">Contactar</a>
+                </div>
+                <div class="card p-6 rounded-xl border-l-4 border-l-green-500 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Ing. Juan José López</h3>
+                        <p class="text-xs text-green-500 uppercase mb-3">CTO & IP Architect</p>
+                    </div>
+                    <p class="text-sm text-gray-400 italic">Core MEVA & Human in the Loop</p>
+                </div>
+                <div class="card agent-designer-card p-6 rounded-xl flex flex-col justify-between border-l-4 border-l-blue-500">
+                    <div>
+                        <h3 class="text-lg font-bold text-blue-300">Designer Agent</h3>
+                        <p class="text-xs text-blue-400 uppercase mb-3">Geo & Process Engineering</p>
+                    </div>
+                    <a href="#designer" class="bg-blue-600/20 text-blue-300 text-center px-3 py-1 rounded text-xs font-medium hover:bg-blue-600/40 transition">Ver Flujo de Diseño</a>
+                </div>
             </div>
-            <div class="rounded-2xl overflow-hidden border border-gray-700 shadow-2xl">
-                <img src="dashboard_cfo_agents.png" alt="CFO Agents Dashboard" class="w-full h-auto">
-            </div>
-            <p class="mt-6 text-center text-gray-500 text-sm italic">Análisis en tiempo real de deficiencias, industrias y oportunidades en México, Brasil y Argentina.</p>
         </div>
     </section>
 
-    <section id="contacto" class="py-20 bg-black">
+    <section id="designer" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-10 border-b border-gray-800 pb-6">
+                <div>
+                    <h2 class="text-4xl font-extrabold text-white">Flujo de Modelado del Diseñador</h2>
+                    <p class="text-gray-400 mt-2">Mapeo desde la ubicación georreferenciada hasta el modelo operativo de su planta.</p>
+                </div>
+                <div class="flex gap-2 font-mono text-xs">
+                    <span class="bg-blue-900 text-blue-300 px-3 py-1 rounded-full">MODE: Diagnóstico y Diseño</span>
+                </div>
+            </div>
+            
+            <div class="p-2 border border-gray-800 rounded-2xl bg-gray-900/50 shadow-2xl">
+                <img src="designer_agent_flow.png" alt="Flujo de Diseño del Agente Vector" class="w-full h-auto rounded-lg">
+            </div>
+            
+            <div class="mt-10 p-6 bg-gray-900 rounded-xl border border-gray-800 text-center max-w-3xl mx-auto">
+                <p class="text-sm text-gray-400">Esta infografía muestra cómo nuestro **Designer Agent** comienza con datos de Maps y ubicación para luego modelar las energías primarias clave (Capacidad Compresores NH₃, Calderas Toneladas, Aire Compresor psi). A partir de ahí, la IA completa los cuadros de sus procesos aguas abajo y genera un modelo digital optimizado para la operación y descarbonización.</p>
+                <button onclick="checkAccess()" class="mt-4 bg-gray-800 px-4 py-2 rounded text-xs text-purple-300 hover:text-white border border-gray-700">🔒 Ver IP Base del Orquestador (Protected)</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-24 bg-black border-t border-gray-900">
         <div class="max-w-xl mx-auto px-6 border border-gray-800 p-10 rounded-2xl">
-            <h2 class="text-2xl font-bold text-white mb-6 text-center">Contactar al Equipo</h2>
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Hablemos de su Planta</h2>
             <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" placeholder="Nombre" class="w-full bg-gray-900 border border-gray-800 p-3 rounded outline-none focus:border-green-500 text-white" required>
-                <input type="email" name="email" placeholder="Email" class="w-full bg-gray-900 border border-gray-800 p-3 rounded outline-none focus:border-green-500 text-white" required>
-                <textarea name="message" placeholder="Mensaje" rows="4" class="w-full bg-gray-900 border border-gray-800 p-3 rounded outline-none focus:border-green-500 text-white" required></textarea>
-                <button type="submit" class="w-full bg-green-600 py-3 rounded text-white font-bold hover:bg-green-500 transition">Enviar Consulta</button>
+                <input type="text" name="name" placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required>
+                <input type="email" name="email" placeholder="Correo Corporativo" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required>
+                <textarea name="message" rows="4" placeholder="¿Qué procesos críticos desea optimizar?" class="w-full bg-gray-900 border border-gray-800 rounded p-3 text-white focus:border-green-500 outline-none" required></textarea>
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-4 rounded-lg transition uppercase tracking-wider">Enviar Propuesta de Diseño</button>
             </form>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-700 text-xs uppercase tracking-widest">
-        &copy; 2026 Vector Industrial | San Luis, Argentina
+    <footer class="py-10 text-center text-gray-600 text-xs border-t border-gray-900 tracking-widest">
+        &copy; 2026 Vector Industrial | BUE · SP · CDMX | Deep Tech for Industry 5.0
     </footer>
 </body>
 </html>
