@@ -10,17 +10,18 @@
         body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
         .nav-glass { background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #30363d; }
         
-        /* Línea de Escaneo Lila Gruesa y Brillante */
+        /* Línea de Escaneo Lila Gruesa con Resplandor */
         @keyframes scan-line { 0% { top: -5%; } 100% { top: 105%; } }
         .scanner::after {
-            content: ""; position: absolute; width: 100%; height: 5px; 
+            content: ""; position: absolute; width: 100%; height: 6px; 
             background: #a855f7; 
-            box-shadow: 0 0 25px 8px rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 30px 10px rgba(168, 85, 247, 0.7);
             animation: scan-line 3s linear infinite;
             z-index: 20;
         }
         
-        .hidden-element { display: none; }
+        .hidden-element { display: none !important; }
+        .modal-overlay { background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(8px); }
     </style>
 </head>
 <body>
@@ -39,7 +40,7 @@
     </nav>
 
     <section id="designer" class="py-20 max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-5xl font-extrabold text-white tracking-tighter uppercase mb-6">Agente Diseñador IA</h2>
             
             <div class="flex justify-center gap-2 font-mono text-[10px] mb-8">
@@ -53,14 +54,14 @@
             <img id="img-flujo" src="designer_agent_flow.png" class="hidden-element w-full opacity-90 transition-opacity duration-500">
         </div>
 
-        <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div class="grid md:grid-cols-2 gap-10">
             <div class="p-8 bg-purple-900/10 rounded-3xl border border-purple-500/20">
                 <h4 class="text-purple-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 01: Ingeniería Inversa</h4>
                 <p class="text-gray-300 leading-relaxed text-sm mb-6">
                     Nuestra IA modela sus procesos partiendo de la imagen de su producto final. **Adjunte una fotografía** para que el agente descomponga las fases y plantee los Paretos de oportunidad.
                 </p>
                 
-                <input type="file" id="upload-product" class="hidden-element" onchange="handleFileUpload()">
+                <input type="file" id="upload-product" class="hidden-element" onchange="processFileUpload()">
                 <button onclick="document.getElementById('upload-product').click()" class="w-full py-4 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-500 transition shadow-lg shadow-purple-900/40 uppercase text-xs tracking-widest">
                     📁 Adjuntar Imagen de Producto
                 </button>
@@ -73,29 +74,29 @@
             <div class="p-8 bg-gray-900/50 rounded-3xl border border-gray-800">
                 <h4 class="text-blue-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 02: Ingeniería de Planta</h4>
                 <p class="text-gray-300 leading-relaxed text-sm">
-                    El Diseñador integra parámetros críticos de infraestructura: **Electricidad, Gas Natural, NH₃, Vapor y Aire Comprimido**. Modelamos la eficiencia energética completa desde los activos hasta el producto final.
+                    El Diseñador integra parámetros críticos: **Electricidad, Gas Natural, NH₃, Vapor y Aire Comprimido**. Modelamos la eficiencia energética completa hasta el producto final.
                 </p>
             </div>
         </div>
     </section>
 
-    <div id="lead-modal" class="hidden-element fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-6">
+    <div id="lead-modal" class="hidden-element fixed inset-0 z-[100] flex items-center justify-center modal-overlay p-6">
         <div class="bg-[#161b22] border border-gray-800 p-10 rounded-3xl max-w-md w-full shadow-2xl">
             <div class="text-center mb-8">
-                <div class="bg-blue-500/10 text-blue-400 text-[10px] font-mono py-1 px-4 rounded-full inline-block mb-4 border border-blue-500/20 tracking-widest">REVERSE_ENGINEERING_LOCKED</div>
-                <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Credenciales de Acceso</h3>
-                <p class="text-gray-400 text-sm mt-3">Cargue sus datos para visualizar los **Paretos de mejora** y las especificaciones de activos detectadas por la IA.</p>
+                <div class="bg-blue-500/10 text-blue-400 text-[10px] font-mono py-1 px-4 rounded-full inline-block mb-4 border border-blue-500/20 tracking-widest">ANALYSIS_LOCKED</div>
+                <h3 class="text-2xl font-bold text-white uppercase">Solicitar Credenciales</h3>
+                <p class="text-gray-400 text-sm mt-3">Cargue sus datos para visualizar los **Paretos de mejora** y las especificaciones de activos según su industria.</p>
             </div>
             
             <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
-                <input type="text" name="company" required placeholder="Empresa / Sector Industrial" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
-                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
-                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl text-white font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/40 uppercase text-xs tracking-widest">
-                    Generar Acceso al Agente IA
+                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <input type="text" name="company" required placeholder="Empresa / Industria" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl text-white font-bold hover:bg-blue-500 transition uppercase text-xs tracking-widest">
+                    Generar Acceso a Dashboard IA
                 </button>
             </form>
-            <button onclick="document.getElementById('lead-modal').classList.add('hidden-element')" class="mt-6 text-gray-600 text-[10px] w-full hover:text-white transition uppercase tracking-widest">Cerrar</button>
+            <button onclick="closeModal()" class="mt-6 text-gray-600 text-[10px] w-full hover:text-white transition uppercase tracking-widest">Cerrar</button>
         </div>
     </div>
 
@@ -117,11 +118,20 @@
             }
         }
 
-        function handleFileUpload() {
-            document.getElementById('success-msg').classList.remove('hidden-element');
-            setTimeout(() => {
-                document.getElementById('lead-modal').classList.remove('hidden-element');
-            }, 2000);
+        // Esta función SOLO se activa cuando se selecciona un archivo
+        function processFileUpload() {
+            const fileInput = document.getElementById('upload-product');
+            if (fileInput.files.length > 0) {
+                document.getElementById('success-msg').classList.remove('hidden-element');
+                // Esperar 2 segundos para dar sensación de procesamiento antes de pedir datos
+                setTimeout(() => {
+                    document.getElementById('lead-modal').classList.remove('hidden-element');
+                }, 2000);
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('lead-modal').classList.add('hidden-element');
         }
 
         function checkAccess() {
