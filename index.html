@@ -10,17 +10,16 @@
         body { background-color: #0d1117; color: #c9d1d9; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
         .nav-glass { background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #30363d; }
         
-        /* Línea de Escaneo Lila Gruesa */
+        /* Línea de Escaneo Lila Gruesa y Brillante */
         @keyframes scan-line { 0% { top: -5%; } 100% { top: 105%; } }
         .scanner::after {
-            content: ""; position: absolute; width: 100%; height: 5px; /* Más gruesa */
-            background: #a855f7; /* Lila */
-            box-shadow: 0 0 20px 4px #a855f7;
+            content: ""; position: absolute; width: 100%; height: 5px; 
+            background: #a855f7; 
+            box-shadow: 0 0 25px 8px rgba(168, 85, 247, 0.6);
             animation: scan-line 3s linear infinite;
             z-index: 20;
         }
         
-        .card-ip { background: #161b22; border: 1px solid #30363d; transition: all 0.3s ease; }
         .hidden-element { display: none; }
     </style>
 </head>
@@ -30,10 +29,10 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-4">
                 <img src="logo_vector.png" alt="Vector" class="h-8">
-                <span class="font-mono text-[10px] text-gray-500 uppercase hidden md:block">Deep Tech Decarbonization</span>
+                <span class="font-mono text-[10px] text-gray-500 uppercase hidden md:block tracking-widest">Deep Tech Decarbonization</span>
             </div>
             <div class="flex items-center gap-6 text-xs font-bold">
-                <a href="dashboard.html" class="text-gray-400 hover:text-green-400 transition tracking-widest">OPORTUNIDADES</a>
+                <a href="dashboard.html" class="text-gray-400 hover:text-green-400 transition tracking-widest uppercase">Oportunidades</a>
                 <button onclick="checkAccess()" class="text-purple-400 border border-purple-900/50 px-3 py-1.5 rounded-lg hover:bg-purple-900/20 font-mono transition">🔒 ACCESO IP</button>
             </div>
         </div>
@@ -42,60 +41,61 @@
     <section id="designer" class="py-20 max-w-6xl mx-auto px-6">
         <div class="text-center mb-16">
             <h2 class="text-5xl font-extrabold text-white tracking-tighter uppercase mb-6">Agente Diseñador IA</h2>
+            
             <div class="flex justify-center gap-2 font-mono text-[10px] mb-8">
-                <button onclick="toggleView('flujo')" id="btn-flujo" class="px-6 py-2.5 rounded-l-xl bg-blue-600 text-white border border-blue-500">Diseñador de Planta</button>
-                <button onclick="toggleView('reverso')" id="btn-reverso" class="px-6 py-2.5 rounded-r-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase">Ingeniería Inversa</button>
+                <button onclick="toggleView('reverso')" id="btn-reverso" class="px-6 py-2.5 rounded-l-xl bg-blue-600 text-white border border-blue-500 uppercase">Ingeniería Inversa</button>
+                <button onclick="toggleView('flujo')" id="btn-flujo" class="px-6 py-2.5 rounded-r-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase">Ingeniería de Planta</button>
             </div>
         </div>
 
         <div class="relative scanner overflow-hidden rounded-3xl border border-gray-800 bg-black shadow-2xl mb-12">
-            <img id="img-flujo" src="designer_agent_flow.png" class="w-full opacity-80">
-            <img id="img-reverso" src="reverse_engineering_scan.png.png" class="hidden w-full opacity-80">
+            <img id="img-reverso" src="reverse_engineering_scan.png.png" class="w-full opacity-90 transition-opacity duration-500">
+            <img id="img-flujo" src="designer_agent_flow.png" class="hidden-element w-full opacity-90 transition-opacity duration-500">
         </div>
 
         <div class="grid md:grid-cols-2 gap-10 items-start">
-            <div class="p-8 bg-gray-900/50 rounded-3xl border border-gray-800">
-                <h4 class="text-blue-400 font-bold uppercase text-xs mb-4 tracking-widest">Capacidad 01: Ingeniería de Planta</h4>
-                <p class="text-gray-300 leading-relaxed text-sm">
-                    Integramos parámetros críticos de infraestructura: **Electricidad (kWh), Gas Natural (m³), NH₃ (Capacidad Frío), Vapor (BHP) y Aire Comprimido (PSI)**. El agente modela la arquitectura energética completa hasta su producto final.
-                </p>
-            </div>
-
             <div class="p-8 bg-purple-900/10 rounded-3xl border border-purple-500/20">
-                <h4 class="text-purple-400 font-bold uppercase text-xs mb-4 tracking-widest">Capacidad 02: Ingeniería Inversa</h4>
+                <h4 class="text-purple-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 01: Ingeniería Inversa</h4>
                 <p class="text-gray-300 leading-relaxed text-sm mb-6">
-                    Nuestra IA descompone sus procesos partiendo de la imagen de su producto final. **Adjunte una fotografía** para que el agente identifique las fases estándar y genere el gemelo digital optimizado.
+                    Nuestra IA modela sus procesos partiendo de la imagen de su producto final. **Adjunte una fotografía** para que el agente descomponga las fases y plantee los Paretos de oportunidad.
                 </p>
                 
                 <input type="file" id="upload-product" class="hidden-element" onchange="handleFileUpload()">
-                <button onclick="document.getElementById('upload-product').click()" class="w-full py-3 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-500 transition shadow-lg shadow-purple-900/40 uppercase text-xs tracking-widest">
-                    📁 Adjuntar Producto Final
+                <button onclick="document.getElementById('upload-product').click()" class="w-full py-4 bg-purple-600 text-white font-bold rounded-xl hover:bg-purple-500 transition shadow-lg shadow-purple-900/40 uppercase text-xs tracking-widest">
+                    📁 Adjuntar Imagen de Producto
                 </button>
                 
                 <div id="success-msg" class="hidden-element mt-4 p-3 bg-green-500/20 border border-green-500/50 text-green-400 text-xs rounded-lg text-center animate-pulse">
-                    ✅ Imagen recibida con éxito. Procesando ingeniería inversa...
+                    ✅ Imagen recibida con éxito. Analizando Paretos de oportunidad...
                 </div>
+            </div>
+
+            <div class="p-8 bg-gray-900/50 rounded-3xl border border-gray-800">
+                <h4 class="text-blue-400 font-bold uppercase text-xs mb-4 tracking-widest">Nivel 02: Ingeniería de Planta</h4>
+                <p class="text-gray-300 leading-relaxed text-sm">
+                    El Diseñador integra parámetros críticos de infraestructura: **Electricidad, Gas Natural, NH₃, Vapor y Aire Comprimido**. Modelamos la eficiencia energética completa desde los activos hasta el producto final.
+                </p>
             </div>
         </div>
     </section>
 
-    <div id="lead-modal" class="hidden-element fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-6">
-        <div class="bg-[#161b22] border border-gray-800 p-10 rounded-3xl max-w-md w-full shadow-3xl">
+    <div id="lead-modal" class="hidden-element fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-6">
+        <div class="bg-[#161b22] border border-gray-800 p-10 rounded-3xl max-w-md w-full shadow-2xl">
             <div class="text-center mb-8">
-                <div class="bg-blue-500/10 text-blue-400 text-[10px] font-mono py-1 px-3 rounded-full inline-block mb-4 border border-blue-500/20">ANALYSIS_LOCKED</div>
-                <h3 class="text-2xl font-bold text-white">Solicitar Credenciales</h3>
-                <p class="text-gray-400 text-sm mt-2">Para visualizar los **Paretos de Mejora** y especificaciones de activos según su industria, complete su perfil.</p>
+                <div class="bg-blue-500/10 text-blue-400 text-[10px] font-mono py-1 px-4 rounded-full inline-block mb-4 border border-blue-500/20 tracking-widest">REVERSE_ENGINEERING_LOCKED</div>
+                <h3 class="text-2xl font-bold text-white uppercase tracking-tighter">Credenciales de Acceso</h3>
+                <p class="text-gray-400 text-sm mt-3">Cargue sus datos para visualizar los **Paretos de mejora** y las especificaciones de activos detectadas por la IA.</p>
             </div>
             
             <form action="https://formspree.io/f/xdayrjrv" method="POST" class="space-y-4">
-                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
-                <input type="text" name="company" required placeholder="Empresa / Industria" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
-                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500">
+                <input type="text" name="name" required placeholder="Nombre y Apellido" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
+                <input type="text" name="company" required placeholder="Empresa / Sector Industrial" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
+                <input type="email" name="email" required placeholder="Email Corporativo" class="w-full bg-gray-900 border border-gray-800 p-4 rounded-xl text-white outline-none focus:border-blue-500 transition">
                 <button type="submit" class="w-full bg-blue-600 py-4 rounded-xl text-white font-bold hover:bg-blue-500 transition shadow-lg shadow-blue-900/40 uppercase text-xs tracking-widest">
-                    Generar Acceso a Dashboard IA
+                    Generar Acceso al Agente IA
                 </button>
             </form>
-            <button onclick="document.getElementById('lead-modal').classList.add('hidden-element')" class="mt-4 text-gray-600 text-[10px] w-full hover:text-white transition uppercase tracking-widest">Cancelar</button>
+            <button onclick="document.getElementById('lead-modal').classList.add('hidden-element')" class="mt-6 text-gray-600 text-[10px] w-full hover:text-white transition uppercase tracking-widest">Cerrar</button>
         </div>
     </div>
 
@@ -105,14 +105,15 @@
             const r = document.getElementById('img-reverso');
             const bf = document.getElementById('btn-flujo');
             const br = document.getElementById('btn-reverso');
-            if(mode === 'flujo') {
-                f.classList.remove('hidden'); r.classList.add('hidden');
-                bf.className = 'px-6 py-2.5 rounded-l-xl bg-blue-600 text-white border border-blue-500';
-                br.className = 'px-6 py-2.5 rounded-r-xl bg-gray-900 text-gray-500 border border-gray-800';
+
+            if(mode === 'reverso') {
+                r.classList.remove('hidden-element'); f.classList.add('hidden-element');
+                br.className = 'px-6 py-2.5 rounded-l-xl bg-blue-600 text-white border border-blue-500 uppercase';
+                bf.className = 'px-6 py-2.5 rounded-r-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase';
             } else {
-                f.classList.add('hidden'); r.classList.remove('hidden');
-                bf.className = 'px-6 py-2.5 rounded-l-xl bg-gray-900 text-gray-500 border border-gray-800';
-                br.className = 'px-6 py-2.5 rounded-r-xl bg-blue-600 text-white border border-blue-500';
+                r.classList.add('hidden-element'); f.classList.remove('hidden-element');
+                br.className = 'px-6 py-2.5 rounded-l-xl bg-gray-900 text-gray-500 border border-gray-800 uppercase';
+                bf.className = 'px-6 py-2.5 rounded-r-xl bg-blue-600 text-white border border-blue-500 uppercase';
             }
         }
 
@@ -120,11 +121,11 @@
             document.getElementById('success-msg').classList.remove('hidden-element');
             setTimeout(() => {
                 document.getElementById('lead-modal').classList.remove('hidden-element');
-            }, 1500);
+            }, 2000);
         }
 
         function checkAccess() {
-            const p = prompt("ACCESO IP ARCHITECT:");
+            const p = prompt("ACCESO RESTRINGIDO - SOCIOS IP ARCHITECT:");
             if(p === "vector2026") window.location.href = "restricted.html";
         }
     </script>
