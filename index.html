@@ -71,8 +71,7 @@
             <button onclick="document.getElementById('main-upload').click()" class="bg-purple-600 hover:bg-purple-500 text-white px-8 py-4 rounded-xl font-bold transition shadow-xl shadow-purple-900/20 uppercase text-xs tracking-widest">
                 📁 Adjuntar Imagen de Producto Final
             </button>
-            <div id="success-msg" class="hidden-element mt-4 p-3 bg-blue-500/20 border border-blue-500/50 text-blue-400 text-[10px] font-mono rounded-lg uppercase tracking-widest">
-                </div>
+            <div id="success-msg" class="hidden-element mt-4 p-3 bg-blue-500/20 border border-blue-500/50 text-blue-400 text-[10px] font-mono rounded-lg uppercase tracking-widest"></div>
         </div>
     </section>
 
@@ -136,60 +135,42 @@
         }
 
         async function handleFileSelection() {
-    const mainInput = document.getElementById('main-upload');
-    const successMsg = document.getElementById('success-msg');
-    
-    if (mainInput.files.length > 0) {
-        const file = mainInput.files[0];
-        
-        // Validación de tamaño (10MB)
-        if (file.size > 10 * 1024 * 1024) {
-            alert("Imagen demasiado pesada. El límite es 10MB.");
-            mainInput.value = "";
-            return;
-        }
-
-        const reader = new FileReader();
-        successMsg.innerText = "⏳ Procesando y subiendo a Google Drive...";
-        successMsg.classList.remove('hidden-element');
-
-        reader.onload = async function(e) {
-            const base64 = e.target.result;
-
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', 
-                    body: JSON.stringify({
-                        base64: base64,
-                        type: file.type,
-                        filename: file.name
-                    })
-                });
-
-                successMsg.innerText = "✅ Imagen guardada en Drive. Iniciando modelado...";
-                mainInput.value = ""; // Limpiamos el input
+            const mainInput = document.getElementById('main-upload');
+            const successMsg = document.getElementById('success-msg');
+            
+            if (mainInput.files.length > 0) {
+                const file = mainInput.files[0];
                 
-                setTimeout(() => {
-                    openModal();
-                    successMsg.classList.add('hidden-element');
-                }, 2000);
+                if (file.size > 10 * 1024 * 1024) {
+                    alert("Imagen demasiado pesada. El límite es 10MB.");
+                    mainInput.value = "";
+                    return;
+                }
 
-            } catch (error) {
-                console.error("Error:", error);
-                successMsg.innerText = "❌ Error en la conexión con Drive.";
-            }
-        };
-        reader.readAsDataURL(file);
-    }
-}
+                const reader = new FileReader();
+                successMsg.innerText = "⏳ Procesando y subiendo a Google Drive...";
+                successMsg.classList.remove('hidden-element');
 
-                        // Como usamos no-cors, no podemos leer la respuesta JSON, 
-                        // pero si la ejecución llega aquí sin fallar, asumimos éxito.
+                reader.onload = async function(e) {
+                    const base64 = e.target.result;
+
+                    try {
+                        await fetch(SCRIPT_URL, {
+                            method: 'POST',
+                            mode: 'no-cors', 
+                            body: JSON.stringify({
+                                base64: base64,
+                                type: file.type,
+                                filename: file.name
+                            })
+                        });
+
                         successMsg.innerText = "✅ Imagen guardada en Drive. Iniciando modelado...";
+                        mainInput.value = "";
                         
                         setTimeout(() => {
                             openModal();
+                            successMsg.classList.add('hidden-element');
                         }, 2000);
 
                     } catch (error) {
